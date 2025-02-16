@@ -1,0 +1,45 @@
+#:import FileChooser kivy.uix.filechooser.FileChooser
+<FolderOpen>:
+    size_hint: 1, 1
+    title: ""
+    separator_height: 0       
+    FloatLayout:
+        orientation: 'vertical'
+
+        FileChooser:
+            keyboard_mode: 'managed'
+            id: file_browser
+            size_hint: 1,0.9
+            pos_hint: {"x":0, "y":0.1}
+            path: "D:"
+            FileChooserListLayout:
+                filters: [lambda folder, filename: folder]
+
+
+
+        Button:
+            text: 'Close'
+            size_hint: 0.2,0.1
+            pos_hint: {"x":0.8, "y":0}
+            on_release: root.dismiss()
+        
+        Button:
+            id: folder_select_b
+            text: 'Select'
+            size_hint: 0.2,0.1
+            pos_hint: {"x":0.6, "y":0}
+            on_release: 
+                root.select_folder(file_browser.path)
+                root.dismiss()
+
+        #TextInput:
+            #id:path_i
+            #size_hint: 0.595,0.05
+            #pos_hint: {"x":0.0, "y":0.025}
+            #halign: "left"
+            #valign: "middle"
+            #multiline: False
+            #on_text_validate: root.text_enter()
+            #font_size: "25sp"
+        
+

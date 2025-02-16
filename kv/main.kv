@@ -1,0 +1,17 @@
+#:include lib/kv/language.kv
+#:include lib/kv/mainscreen.kv
+#:include lib/kv/qna.kv
+#:include lib/kv/folder.kv
+#:include lib/kv/ifolder.kv
+#:import FileChooserListView kivy.uix.filechooser.FileChooserListView
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+
+#import Factory kivy.factory.Factory
+Manager:
+    MainScreen:
+        name: "main"
+    Language:
+        name: "language"
+    QnA:
+        name: "qna"

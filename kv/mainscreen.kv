@@ -1,0 +1,146 @@
+<MainScreen>:
+    FloatLayout:
+        Label:
+            id: list_l
+            size_hint: 0.1, 0.1
+            pos_hint: {"x":0, "y":0}
+
+        Button:
+            size_hint: 0.1, 0.1
+            pos_hint: {"x":0.9, "y":0}
+            background_color: 0,0,0,0
+
+            on_press:
+                root.language_on()
+                
+            on_release:
+                root.language_off()
+                app.root.current = "language"
+                root.manager.transition.direction = 'left'
+
+            Image:
+                id: language_b
+                source: 'lib/images/language.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+        Button:
+            size_hint: 0.1, 0.1
+            pos_hint: {"x":0.8, "y":0}
+            background_color: 0,0,0,0
+
+            on_press: root.qna_on()
+            on_release:
+                root.qna_off()
+                app.root.current = "qna"
+                root.manager.transition.direction = 'up'
+
+            Image:
+                id: qna_b
+                source: 'lib/images/qna.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+
+        Label:
+            id:destination_l
+            text_size: self.size
+            text: "Destination Folder:"
+            halign: "left"
+            valign: "middle"
+            size_hint: 0.9, 0.05
+            pos_hint: {"x":0.05, "y":0.5}
+            size: self.texture_size
+            font_size: "25sp"
+        
+        TextInput:
+            id:destination_i
+            size_hint: 0.6,0.05
+            pos_hint: {"x":0.3, "y":0.5}
+            halign: "left"
+            valign: "middle"
+            multiline: False
+            on_text_validate: root.text_enter_d()
+            on_text: root.update_d_path(self.text)
+            font_size: "25sp"
+
+        Button:
+            size_hint: 0.1,0.05
+            pos_hint: {"x":0.9, "y":0.5}
+            halign: "left"
+            valign: "middle"
+            background_color: 0,0,0,0
+
+            on_press: root.folder_on()
+                
+            on_release: 
+                root.folder_off()
+                root.open_folder()
+            Image:
+                id: destination_b
+                source: 'lib/images/folder.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+
+        Label:
+            id:input_l
+            text_size: self.size
+            text: "Installation file:"
+            halign: "left"
+            valign: "middle"
+            size_hint: 0.9, 0.05
+            pos_hint: {"x":0.05, "y":0.6}
+            size: self.texture_size
+            font_size: "25sp"
+
+        TextInput:
+            id:input_i
+            size_hint: 0.6,0.05
+            pos_hint: {"x":0.3, "y":0.6}
+            halign: "left"
+            valign: "middle"
+            multiline: False
+            on_text_validate: root.text_enter_i()
+            on_text: root.update_i_path(self.text)
+            font_size: "25sp"
+
+        Button:
+            size_hint: 0.1,0.05
+            pos_hint: {"x":0.9, "y":0.6}
+            halign: "left"
+            valign: "middle"
+            background_color: 0,0,0,0
+
+            on_press: root.i_folder_on()
+                
+            on_release: 
+                root.i_folder_off()
+                root.open_i_folder()
+            Image:
+                id: input_b
+                source: 'lib/images/folder.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+        Label:
+            text: "Alpha app contains a lot of bugs."
+            id: title_l
+            text_size: self.size
+            halign: "center"
+            size_hint: 1,1
+            pos_hint: {"x":0, "y":0.8}
+            size: self.texture_size
+            font_size: "25sp"
+
+        Button:
+            text: "Install"
+            id: install_b
+            text_size: self.size
+            halign: "center"
+            valign: "middle"
+            size_hint: 0.2,0.1
+            pos_hint: {"x":0.4, "y":0.2}
+            font_size: "25sp"
+            on_release: root.install()
+      

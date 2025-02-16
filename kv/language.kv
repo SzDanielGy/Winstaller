@@ -1,0 +1,58 @@
+<Language>:
+    GridLayout:
+        cols: 1
+        size_hint: None, None
+        size: root.width *0.5 , root.height 
+        pos_hint:{"x":.5}
+        Button:
+            text: "English"
+            id: english
+            font_size: "25sp"
+            on_release:
+                root.english()
+
+        Button:
+            text: "Hungarian"
+            id: hungarian
+            font_size: "25sp"
+            on_release: root.hungarian()
+        
+        Button:
+            text: "German"
+            id: german
+            font_size: "25sp"
+            on_release: root.german()
+
+        Button:
+            text: "Russian"
+            id: russian
+            font_size: "25sp"
+            on_release: root.russian()
+
+        Button:
+            text: "Italian"
+            id: italian
+            font_size: "25sp"
+            on_release: root.italian()
+
+        Button:
+            text: "Spanish"
+            id: spanish
+            font_size: "25sp"
+            on_release: root.spanish()
+
+        Button:
+            text: "Japan"
+            id: japan
+            font_size: "25sp"
+            on_release: root.japan()
+
+        Button:
+            id: language_back_b
+            text: "Back"
+            font_size: "25sp"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = 'right'
+
+

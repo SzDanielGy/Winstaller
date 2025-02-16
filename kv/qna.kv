@@ -1,0 +1,28 @@
+<QnA>:
+    FloatLayout:
+        Button:
+            size_hint: 0.3, 0.1
+            pos_hint: {"x":0.7, "y":0}
+            id: qna_back_b
+            text: "Back"
+            font_size: "25sp"
+            on_release: 
+                app.root.current = "main"
+                root.manager.transition.direction = 'down'
+        Label:
+            id:qna_l
+            text_size: self.size
+            text: "Using the program:\n1.     Obtain the necessary IDs or names for the 'winget' command.\n2.     Open the file path or enter where you want to install the applications.\n3.     (The application folders will be placed in the selected folder.)\n4.     Press the install button, and the program will take care of the rest.\n5.     (Optional: You can install additional programs after the installation is complete.)"
+            size_hint: 0.9, 0.5
+            pos_hint: {"x":0.05, "y":0.5}
+            size: self.texture_size
+            font_size: "25sp"
+
+        Label:
+            id:credits
+            text_size: self.size
+            text: "I used chatGPT for the translation.\nIf I got stuck a bit, VMatt helped me.\nCreated by: ^54Đ\nVersion 1.0.0"
+            size_hint: 0.9, 0.5
+            pos_hint: {"x":0.05, "y":0}
+            size: self.texture_size
+            font_size: "25sp"
